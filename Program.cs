@@ -1,5 +1,4 @@
-﻿// // See https://aka.ms/new-console-template for more information
-//  Console.WriteLine("Hello, World!");
+﻿//  Console.WriteLine("Hello, World!");
 
 
 
@@ -8,82 +7,51 @@
 // 0, 7, 8, -2, -2 -> 2
 // 1, -7, 567, 89, 223-> 3
 
-Console.Write("Введите числа через запятую: ");
+Console.Write("Введите длину массива = ");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] numbers = new int[size];
 
-void PrintArray(int[] array)
+RandonNumbers(numbers);
+Power(numbers);
+Console.Write("Массив = ");
+PrintArray(numbers);
+void RandonNumbers(int[] numbers)
+{
+    for(int i = 0; i < size; i++)
+    {
+        Console.Write("Введите число = ");
+        numbers[i] = Convert.ToInt32(Console.ReadLine());
+    }
+}
+void Power(int[] numbers)
+{
+    int result = 0;
+
+    for (int i = 0; i < numbers.Length; i++)
+    {
+    if (numbers[i]>0)
+    {
+        result += 1;
+        
+    }
+    else if (numbers[i]<=0)
+    {
+        
+    }
+    // return Kol();
+    }
+    Console.WriteLine($"Количество положительных чисел = {result}");
+}
+void PrintArray(int[] numbers)
 {
     Console.Write("[ ");
-    for (int i = 0; i < array.Length; i++)
+    for(int i = 0; i < numbers.Length; i++)
     {
-        Console.Write(array[i] + " ");
+        Console.Write(numbers[i] + " ");
     }
     Console.Write("]");
-
-
-int[] numbers = StringToNum(Console.ReadLine());
-PrintArray(numbers);
-int sum = 0;
-for (int i = 0; i < numbers.Length; i++)
-{
-    if (numbers[i] > 0)
-    {
-        sum++;
-    }
+    Console.WriteLine();
 }
-Console.WriteLine();
-Console.WriteLine($"Количество значений больше 0 = {sum}");
-
-
-int[] StringToNum(string input)
-{
-    int count = 1;
-    for (int i = 0; i < input.Length; i++)
-    {
-        if (input[i] == ',')
-        {
-            count++;
-        }
-    }
-
-    int[] numbers = new int [count];
-    int index = 0;
-
-    for (int i = 0; i < input.Length; i++)
-    {
-        string temp = "";
-
-        while (input [i] != ',')
-        {
-        if(i != input.Length - 1)
-        {
-            temp += input [i].ToString();
-            i++;
-        }
-        else
-        {
-            temp += input [i].ToString();
-            break;
-        }
-        }
-        numbers[index] = Convert.ToInt32(temp);
-        index++;
-    }
-    return numbers;
-}
-
-
-// void PrintArray(int[] array)
-// {
-//     Console.Write("[ ");
-//     for (int i = 0; i < array.Length; i++)
-//     {
-//         Console.Write(array[i] + " ");
-//     }
-//     Console.Write("]");
-// }
-
-
-
 
 
 
